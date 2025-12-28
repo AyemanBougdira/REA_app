@@ -24,37 +24,6 @@ response = client.chat.completions.create(
     extra_body={"reasoning": {"enabled": True}}
 )
 
-# Extract the assistant message with reasoning_details
-# response1 = response.choices[0].message
-# print(response1.content)
-
-
-# headers = {"Authorization": "Bearer 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"}
-# url = "https://openrouter.ai/api/v1/models"
-
-# response = requests.get(url, headers=headers)
-# print(response.json())
-
-# Preserve the assistant message with reasoning_details
-# messages = [
-#     {"role": "user", "content": "How many r's are in the word 'strawberry'?"},
-#     {
-#         "role": "assistant",
-#         "content": response.content,
-#         "reasoning_details": response.reasoning_details  # Pass back unmodified
-#     },
-#     {"role": "user", "content": "Are you sure? Think carefully."}
-# ]
-
-# Second API call - model continues reasoning from where it left off
-# response2 = client.chat.completions.create(
-#     model="openai/gpt-oss-120b:free",
-#     messages=messages,
-#     extra_body={"reasoning": {"enabled": True}}
-# )
-
-
-# Test the arXiv search tool
 
 
 # Tool mapping
