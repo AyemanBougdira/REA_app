@@ -1,6 +1,7 @@
 import streamlit as st 
-import agents 
-
+from agents import generate_research_report_with_tools 
+from agents import summarize_report 
+from agents import challenges_and_futur_prediction
 
 st.set_page_config(
     page_title="ECC Research Assistant",
@@ -22,9 +23,9 @@ st.set_page_config(
 txt = st.text_input("🕵🏻 Enter your research subject", "")
 
 if st.button("Start researching"):
-        report = agents.generate_research_report_with_tools(txt)
-        summary = agents.summarize_report(report)
-        challenges =agents.challenges_and_futur_prediction(summary)
+        report = generate_research_report_with_tools(txt)
+        summary = summarize_report(report)
+        challenges =challenges_and_futur_prediction(summary)
         tab1, tab2, tab3 = st.tabs([
             "✍️ Report",
             "📚 Summary",

@@ -5,32 +5,40 @@ import research_api
 import json
 
 
-# Let's code research agent FROM SCRATCH (WITHOUT USING FRAMEWORK)
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.environ["OPENROUTER_API_KEY"],
-)
-
-
-# to verify the model 
-response = client.chat.completions.create(
-    model="openai/gpt-oss-120b:free",
-    messages=[
-        {
-          "role": "user",
-          "content": "DO you know MBSE?"
-        }
-    ],
-    extra_body={"reasoning": {"enabled": True}}
-)
-
-
-
 # Tool mapping
 TOOL_MAPPING = {
     "tavily_search_tool": research_api.tavily_search_tool,
     "arxiv_search_tool": research_api.arxiv_search_tool,
 }
+
+# Let's code research agent FROM SCRATCH (WITHOUT USING FRAMEWORK)
+# client = OpenAI(
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=os.environ["OPENROUTER_API_KEY"],
+# )
+
+
+def get_client():
+    return OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=os.environ.get("OPENROUTER_API_KEY"),
+    )
+
+
+# # to verify the model 
+# response = client.chat.completions.create(
+#     model="openai/gpt-oss-120b:free",
+#     messages=[
+#         {
+#           "role": "user",
+#           "content": "DO you know MBSE?"
+#         }
+#     ],
+#     extra_body={"reasoning": {"enabled": True}}
+# )
+
+
+
 
 
 def generate_research_report_with_tools(prompt: str) -> str:
@@ -43,6 +51,8 @@ def generate_research_report_with_tools(prompt: str) -> str:
     Returns:
         str: Final assistant research report text.
     """
+    client = get_client()
+
     messages_ = [
         {
             "role": "system",
@@ -65,7 +75,7 @@ def generate_research_report_with_tools(prompt: str) -> str:
     tools = [research_api.arxiv_tool_def, research_api.tavily_tool_def]
 
     # Maximum number of turns
-    max_turns = 6
+    max_turns = 3
     final_text = ""
 
     for turn in range(max_turns):
@@ -169,6 +179,7 @@ def summarize_report(report: str) -> str:
     :param report: Full report text
     :return: Summary text
     """
+    client = get_client()
 
     messages = [
         {
@@ -203,6 +214,7 @@ def challenges_and_futur_prediction(report, temperature: float = 0.3) -> str:
     Returns:
               - "challenges_report"
     """
+    client = get_client()
 
     messages = [
         # System prompt is already defined
