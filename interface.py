@@ -18,8 +18,68 @@ st.set_page_config(
 # )
 
 # st.header('Automating Research using AI')
+col1, col2, col3 = st.columns([1, 1, 1])
+with col2:
+    st.image("logo.png")
+
 
 # if option == "Research":
+st.markdown("### About")
+st.info(
+    "This AI-powered research assistant helps you generate comprehensive "
+    "academic reports by searching arXiv and the web. Enter a research topic "
+    "to get started."
+)
+
+
+st.markdown("### Features")
+st.markdown("""
+    - 📊 Comprehensive research reports
+    - 📝 Auto-generated summaries
+    - 🔮 Future predictions & challenges
+    - 📚 Academic citations included
+    - 🌐 Web & arXiv integration
+    """)
+st.markdown("""
+    <style>
+    .main-header {
+        font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+    .stButton>button {
+        width: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 0.75rem;
+        border: none;
+        font-size: 1.1rem;
+    }
+    .stButton>button:hover {
+        background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+    }
+    .info-box {
+        background-color: #f0f2f6;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    .tab-content {
+        padding: 1.5rem 0;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 txt = st.text_input("🕵🏻 Enter your research subject", "")
 
 if st.button("Start researching"):
