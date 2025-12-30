@@ -23,6 +23,16 @@ The project is built using a modular Python architecture:
 * **`research_api.py`**: Defines the integration with external APIs, including XML parsing for arXiv and structured search via Tavily.
 * **`interface.py`**: A Streamlit-based dashboard that provides a user-friendly interface for starting research tasks and viewing results in tabs.
 
+## 🧑‍💻 User interface
+
+![Interface Streamlit](results/1.png)
+![Interface Streamlit](results/2.png)
+![Interface Streamlit](results/3.png)
+![Interface Streamlit](results/4.png)
+![Interface Streamlit](results/5.png)
+
+
+
 ## 🔧 Setup & Installation
 
 ### 1. Prerequisites
