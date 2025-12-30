@@ -75,7 +75,7 @@ def generate_research_report_with_tools(prompt: str) -> str:
     tools = [research_api.arxiv_tool_def, research_api.tavily_tool_def]
 
     # Maximum number of turns
-    max_turns = 3
+    max_turns = 5
     final_text = ""
 
     for turn in range(max_turns):

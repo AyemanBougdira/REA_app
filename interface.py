@@ -1,3 +1,4 @@
+import streamlit as st
 import streamlit as st 
 from agents import generate_research_report_with_tools 
 from agents import summarize_report 
@@ -17,13 +18,28 @@ st.set_page_config(
 #     ['Research Assistant', 'Evaluator Assistant']
 # )
 
-# st.header('Automating Research using AI')
-col1, col2, col3 = st.columns([1, 1, 1])
+col1, col2, col3 = st.columns([0.5, 0.4, 0.5])
+
 with col2:
     st.image("logo.png")
 
+st.header('REA APP: AUTOMATING RESEARCH')
+# col1, col2, col3 = st.columns([1, 0.3, 1])
+# with col2:
+#     st.image("logo.png")
+
+
+
 
 # if option == "Research":
+st.markdown("### TEAM")
+st.markdown("""
+    - Salma BENSLIMANE: https://www.linkedin.com/in/salma-benslimane-1b3ab7246/
+    - Ayeman BOUGDIRA: https://www.linkedin.com/in/abougdir/
+    - Ilyas DAHAOUI: https://www.linkedin.com/in/ilyass-dahaoui/
+    - Ilyasse El Khazane: https://www.linkedin.com/in/ilyasse-e-4b22871b3/
+    """)
+
 st.markdown("### About")
 st.info(
     "This AI-powered research assistant helps you generate comprehensive "
