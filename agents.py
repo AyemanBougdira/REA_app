@@ -81,7 +81,8 @@ def generate_research_report_with_tools(prompt: str) -> str:
     for turn in range(max_turns):
         try:
             response = client.chat.completions.create(
-                model="openai/gpt-oss-120b:free",
+                # model="openai/gpt-oss-120b:free",
+                model="qwen/qwen2.5-vl-72b-instruct:free",
                 messages=messages_,
                 tools=tools,
                 tool_choice="auto",
