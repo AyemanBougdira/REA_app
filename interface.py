@@ -23,7 +23,7 @@ col1, col2, col3 = st.columns([0.5, 0.4, 0.5])
 with col2:
     st.image("logo.png")
 
-st.header('REA APP: AUTOMATING RESEARCH')
+st.header('REA APP: Research Expert Assistant')
 # col1, col2, col3 = st.columns([1, 0.3, 1])
 # with col2:
 #     st.image("logo.png")

@@ -1,4 +1,4 @@
-# REA APP: Automating Research
+# REA APP: Research Expert Assistant
 
 ## 👥 Team
 - Salma BENSLIMANE
