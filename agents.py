@@ -82,7 +82,7 @@ def generate_research_report_with_tools(prompt: str) -> str:
         try:
             response = client.chat.completions.create(
                 # model="openai/gpt-oss-120b:free",
-                model="qwen/qwen-2.5-vl-7b-instruct:free",
+                model="google/gemini-2.0-flash-exp:free",
                 messages=messages_,
                 tools=tools,
                 tool_choice="auto",
@@ -151,7 +151,7 @@ def generate_research_report_with_tools(prompt: str) -> str:
                 # Make one more call WITHOUT tools to force text generation
                 final_response = client.chat.completions.create(
                     # model="openai/gpt-oss-120b:free",
-                    model="qwen/qwen-2.5-vl-7b-instruct:free",
+                    model="google/gemini-2.0-flash-exp:free",
                     messages=messages_,
                     extra_body={"reasoning": {"enabled": True}}
                 )
@@ -199,7 +199,7 @@ def summarize_report(report: str) -> str:
 
     response = client.chat.completions.create(
         # model="openai/gpt-oss-120b:free",
-        model="qwen/qwen-2.5-vl-7b-instruct:free",
+        model="google/gemini-2.0-flash-exp:free",
         messages=messages,
         temperature=0.3
     )
@@ -230,7 +230,7 @@ def challenges_and_futur_prediction(report, temperature: float = 0.3) -> str:
     response = client.chat.completions.create(
         # Pass in the model
         # model="openai/gpt-oss-120b:free",
-        model="qwen/qwen-2.5-vl-7b-instruct:free",
+        model="google/gemini-2.0-flash-exp:free",
         messages=messages,
         # Set the temperature equal to the temperature parameter passed to the function
         temperature=0.3
